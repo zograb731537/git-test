@@ -23,6 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.hello{
+  color:red;
+  font-size: 30px;
+  border: 3px solid rgb(172, 37, 37);
+}
 
 .App-link {
   color: #61dafb;
@@ -36,3 +41,10 @@
     transform: rotate(360deg);
   }
 }
+.AppButton{
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  }
