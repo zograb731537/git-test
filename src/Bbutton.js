@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import Button from "@material-ui/core/Button";
 
 export default function Cutton(props) {
- 
+
 const [counter,setCounter] = useState(0);
  
    function increment () {

@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 
 export default function RecursiveButton(props) {
-  const [showMode, setShowMode] = useState(false);
 
-  return (
-    <>
-      <button onClick={() => setShowMode(!showMode)}>
-        show,hide next step!
+
+  const [showMode,setShowmode] = useState(false);
+
+  const changeMode = () => {
+    setShowmode(!showMode)
+  }
+
+  return(
+    <div>
+      <button onClick={changeMode}>
+        show-hide next step!
       </button>
       {showMode ? <RecursiveButton /> : null}
-    </>
-  );
+    </div>
+  )
+
 }

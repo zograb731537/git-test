@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Cutton from "./Cutton";
+import Bbutton from "./Bbutton";
 import Time from "./Time";
 import Ccomponent from "./Ccomponent";
 import RecursiveButton from "./RecursiveButton";
@@ -8,18 +8,60 @@ import Show from "./Show";
 import Change from "./Change";
 import List from "./List";
 import Input from "./Input";
+import Inputs from "./Inputs";
+import City from "./City";
+import CitiesList from "./CitiesList";
 
-export default function App(props) {
+export default function App() {
+  console.log("0");
+  const [cities, setSities] = useState([
+    { name: "Москва", description: "Столица России" },
+    { name: "Ереван", description: "Столица Армении" },
+  ]);
 
+  const [currentIndex, setCurrentIndex] = useState(1);
+  
+  const handleChangeCity = (n, description) => {
+    console.log("1");
+    setSities(
+      cities.map((city, index) => {
+        if (index === n) {
+          return {
+            ...city,
+            description,
+          };
+        }
+        return city;
+      })
+    );
+  };
+
+  const handleSelectCity = (n) => {
+    console.log("111");
+    setCurrentIndex(n);
+  }
+  
+  
+  console.log("2");
+  
   return (
     <div>
+      <CitiesList 
+        cities={cities} 
+        onSelectCity={handleSelectCity}/>
+      <City
+        onChangeCity={handleChangeCity}
+        cities={cities}
+        currentIndex={currentIndex}
+      />
+      <Inputs />
       <Input />
       <List />
       <Change />
       <RecursiveButton />
       <Show />
       <Time />
-      <Cutton />
+      <Bbutton />
       <Ccomponent />
     </div>
   );

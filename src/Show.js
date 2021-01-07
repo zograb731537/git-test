@@ -1,22 +1,25 @@
 import React ,{useState} from 'react';
 import Content from './Content';
 
+
 export default function Show(props){
-    const [showMode,setShowMode] = useState(true);
-    const hendleClick = () => { 
-        setShowMode(!showMode);
-};
+  const [showMode,setShowMode] = useState(true);
 
-let content = null;
+  const handleClick = () => {
+    setShowMode(!showMode)
+  }
 
-if(showMode){
-  content = <Content />
-};
-
+  let content = null;
+  if(showMode){
+    content = <h1>Hello</h1>
+  }else{
+    content = <h1>By-By</h1>
+  }
   return (
-  <div>
-    <button onClick={hendleClick}>Show Toggle</button>
-        {content}
-        </div>
-  );
+    <div>
+      {content}
+      <button onClick={handleClick}>{content}</button>
+    </div>
+  )
 }
+
