@@ -1,71 +1,94 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import Bbutton from "./Bbutton";
-import Time from "./Time";
-import Ccomponent from "./Ccomponent";
-import RecursiveButton from "./RecursiveButton";
-import Show from "./Show";
-import Change from "./Change";
-import List from "./List";
-import Input from "./Input";
-import Inputs from "./Inputs";
-import City from "./City";
-import CitiesList from "./CitiesList";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profiles/MyPosts/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
+import News from "./components/News/News";
+import Music from "./components/Music/Music";
+import { BrowserRouter, Route } from "react-router-dom";
 
-export default function App() {
-  console.log("0");
-  const [cities, setSities] = useState([
-    { name: "Москва", description: "Столица России" },
-    { name: "Ереван", description: "Столица Армении" },
-  ]);
 
-  const [currentIndex, setCurrentIndex] = useState(1);
-  
-  const handleChangeCity = (n, description) => {
-    console.log("1");
-    setSities(
-      cities.map((city, index) => {
-        if (index === n) {
-          return {
-            ...city,
-            description,
-          };
-        }
-        return city;
-      })
-    );
-  };
 
-  const handleSelectCity = (n) => {
-    console.log("111");
-    setCurrentIndex(n);
-  }
-  
-  
-  console.log("2");
-  
+const App = () => {
   return (
-    <div>
-      <CitiesList 
-        cities={cities} 
-        onSelectCity={handleSelectCity}/>
-      <City
-        onChangeCity={handleChangeCity}
-        cities={cities}
-        currentIndex={currentIndex}
-      />
-      <Inputs />
-      <Input />
-      <List />
-      <Change />
-      <RecursiveButton />
-      <Show />
-      <Time />
-      <Bbutton />
-      <Ccomponent />
-    </div>
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Route path="/dialogs" component={Dialogs} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/news" component={News} />
+          <Route path="/music" component={Music} />
+        </div>
+      </div>
+    </BrowserRouter>
   );
-}
+};
+
+export default App;
+
+// import Bbutton from "./Bbutton";
+// import Time from "./Time";
+// import Ccomponent from "./Ccomponent";
+// import RecursiveButton from "./RecursiveButton";
+// import Show from "./Show";
+// import Change from "./Change";
+// import List from "./List";
+// import Input from "./Input";
+// import Inputs from "./Inputs";
+// import City from "./City";
+// import CitiesList from "./CitiesList";
+
+// export default function App() {
+//   const [cities, setSities] = useState([
+//     { name: "Москва", description: "Столица России" },
+//     { name: "Ереван", description: "Столица Армении" },
+//   ]);
+
+//   const [currentIndex, setCurrentIndex] = useState(1);
+
+//   const handleChangeCity = (n, description) => {
+//     setSities(
+//       cities.map((city, index) => {
+//         if (index === n) {
+//           return {
+//             ...city,
+//             description,
+//           };
+//         }
+//         return city;
+//       })
+//     );
+//   };
+
+//   const handleSelectCity = (n) => {
+//     setCurrentIndex(n);
+//   };
+
+//   return (
+//     <div>
+//       <CitiesList cities={cities}
+//        onSelectCity={handleSelectCity}
+//        />
+//       <City
+//         onChangeCity={handleChangeCity}
+//         cities={cities}
+//         currentIndex={currentIndex}
+//       />
+//       <Inputs />
+//       <Input />
+//       <List />
+//       <Change />
+//       <RecursiveButton />
+//       <Show />
+//       <Time />
+//       <Bbutton />
+//       <Ccomponent />
+//     </div>
+//   );
+// }
 
 //  function App(props) {
 //    const time = (
