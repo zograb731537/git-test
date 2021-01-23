@@ -5,6 +5,7 @@ const Dialogs = (props) => {
    return (
        <div>
            Dialogs
+           <input type="text"/>
        </div>
    )
 }
