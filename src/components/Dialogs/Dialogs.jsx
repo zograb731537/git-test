@@ -1,31 +1,56 @@
 import  React from 'react';
 import { NavLink } from 'react-router-dom';
-import s from './Dialogs.module.css'
+import s from './Dialogs.module.css';
+
+const DialogItem = (props) => {
+let path = "/dialogs/" + props.id;
+
+   return (
+      <div>
+         <div className={s.dialog + " " + s.active} >
+               <NavLink to={path}>{props.name}</NavLink>
+              </div>
+      </div>
+   );
+}
+
+const Message = (props) => {
+   return (
+      <div>
+        <div className={s.message}>{props.message}</div> 
+      </div>
+   )
+}
 
 const Dialogs = (props) => {
+
+let dialogs = [
+   {id: 1,name: "Eduard"},
+   {id: 2,name: "Armen"},
+   {id: 3,name: "Vardan"},
+   {id: 4,name: "Karen"},
+   {id: 5,name: "Sargis"},
+];
+
+
+let messages = [
+   {id: 1,message: "Hello!"},
+   {id: 2,message: "How are you?"},
+   {id: 3,message: "What is your name?"},
+]
+
+let DialogElement = dialogs.map( dialog =>  <DialogItem name={dialog.name} id={dialog.id}/> );
+  
+
+let MessageElement = messages.map( element => <Message message={element.message} id={element.id} /> );
+
    return (
        <div className={s.dialogs}>
-          <div className={s.dialogItems}>
-              <div className={s.dialog + " " + s.active} >
-               <NavLink to="/dialogs/1">Eduard</NavLink>
-              </div>
-              <div className={s.dialog}>
-               <NavLink to="/dialogs/2">Armen</NavLink>         
-              </div>
-              <div className={s.dialog}>
-              <NavLink to="/dialogs/3">Vardan</NavLink>
-              </div>
-              <div className={s.dialog}>
-              <NavLink to="/dialogs/4">Karen</NavLink>
-              </div>
-              <div className={s.dialog}>
-              <NavLink to="/dialogs/5">Sargis</NavLink>
-              </div>
+          <div className={s.dialogItems}>  
+          {DialogElement}       
           </div>
           <div className={s.messages}>
-             <div className={s.message}>Hello!</div>
-             <div className={s.message}>How are you!</div>
-             <div className={s.message}>What is your name</div>
+             {MessageElement} 
           </div>
        </div>
    )

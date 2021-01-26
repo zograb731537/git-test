@@ -58,7 +58,7 @@
     "n c c";
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 50px 1fr;
-  grid-gap: 10px;
+  grid-gap: 3px;
 }
 
 .app-wrapper-content {
@@ -67,7 +67,7 @@
 }
 
 .app-wrapper-content img{
-  width:910px;
- 
+  width:915px;
+ height: 200px;
 }
 
