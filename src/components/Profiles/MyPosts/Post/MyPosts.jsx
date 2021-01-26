@@ -16,7 +16,7 @@ const MyPosts = (props) => {
     
     return (      
         <div className={s.posts}>
-            <h3>My posts</h3>
+            <h3>My Posts</h3>
          <div>
              <img src="https://is.gd/Xg5dWL/" />
           </div>
