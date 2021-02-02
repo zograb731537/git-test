@@ -1,9 +1,9 @@
 import  React from 'react';
-import s from './Settings.module.css'
+import style from './Settings.module.css'
 
 const Settings = (props) => {
    return (
-       <div className={s.settings}>
+       <div className={style.settings}>
            <input type="text"/>
            <img src="https://is.gd/Ht7NXd" alt=""/>
        </div>

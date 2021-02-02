@@ -6,8 +6,8 @@
 }
 .music {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows:  80px;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows:   80px;
   grid-template-areas:
     "mi i s"
     "mi i s"
@@ -23,12 +23,11 @@
   margin-top: 40px;
   grid-area: i;
   color: white;
+  text-decoration: none;
 }
-.song {
-  grid-area: s;
+.song a{
   color: white;
-  margin-top: 40px;
+  grid-area: s;
+  line-height: 80px;
 }
-.music a.active {
-  color: gold;
-}
+
