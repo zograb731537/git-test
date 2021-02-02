@@ -1,4 +1,17 @@
 .news img{
     width: 150px;
-    height: 120px;
+    height: 150px;
 }
+.news {
+    
+    display: grid;
+    grid-template-columns: 5fr 5fr;     
+    padding: 10px;
+    color:white;
+  }
+  .country a{
+      color:white;
+  }
+  .greeting{
+      color: white;
+  }
