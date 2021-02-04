@@ -2,3 +2,22 @@
     width: 150px;
     height: 120px;
 }
+.newCountry{
+    grid-area: "c";
+    padding: 10px;
+    color:white;
+}
+.phrases{
+    grid-area: "p";
+    padding: 10px;
+    color:white; 
+}
+.news{
+    display: grid;
+    grid-template-rows: 1fr 100px;
+    grid-template-columns: 5fr 5fr;
+    grid-template-areas:
+    "c p" 
+    "c p" 
+    "c p" ;
+}
