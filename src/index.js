@@ -26,24 +26,36 @@ let messages = [
   {id: 1,message: "Hello!"},
   {id: 2,message: "How are you?"},
   {id: 3,message: "What is your name?"},
-]
+];
 
 const countries = [
   {name:'RUSSIA'},
   {name:'EUROPE'},
   {name:'AMERICA'},
-]
+];
 const greetings = [
   {phrase:'ПРИВЕТ'},
-  {phrase:'BONJOUR'},
+  {phrase:'FRANCE'},
   {phrase:'HELLO'},
-]
+];
+const singers = [
+  {name:'Michael Jackson'},
+  {name:'Stevie Wonder'},
+  {name:'Toni Braxton'},
+];
+const mySong = [
+  {song:<a href="https://youtu.be/s3wNuru4U0I" target="_blank">We are the world</a>},
+  {song:<a href="https://youtu.be/1bGOgY1CmiU" target="_blank">I just called to say I love you</a>},
+  {song:<a href="https://youtu.be/p2Rch6WvPJE" target="_blank">Un breaks my heart</a>}
+];
+
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App posts={posts} dialogs={dialogs} messages={messages}
-    countries={countries} greetings={greetings} />
+    countries={countries} greetings={greetings} singers={singers}
+    mySong={mySong} />
   </React.StrictMode>,
   document.getElementById('root')
 );

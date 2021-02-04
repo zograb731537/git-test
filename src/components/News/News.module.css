@@ -14,10 +14,8 @@
 }
 .news{
     display: grid;
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 5fr 5fr;
     grid-template-areas:
-    "c p" 
-    "c p" 
-    "c p" ;
+    "c p";
 }
