@@ -1,8 +1,8 @@
 .music {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows:   80px;
-    grid-template-areas:
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
       "mi i s"
       "mi i s"
       "mi i s";
@@ -20,5 +20,16 @@
     padding: 20px;
   }
   .singer{
+    /* padding: 30px;\ */
+    margin-top: 50px;
+    grid-area: i;
       color: white;
+  }
+  .song {
+    grid-area: s;
+    margin-top: 50px;
+  }
+  .song a{
+    color:gold;
+    text-decoration: none;
   }

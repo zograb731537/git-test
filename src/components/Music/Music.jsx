@@ -24,16 +24,18 @@ const Music = (props) => {
     let Singers = props.singers.map( sing => <Singer name={sing.name} />);
 
     return (
-        <React.Fragment className={style.music}>
+        <React.Fragment>
+        <div className={style.music}>
             <div className={style.musicImg}> 
               <div>
-                  <img src="https://is.gd/ORm39y"/>
+                  <img src="https://is.gd/ho9np9"/>
               </div>  
               <div>
-                  <img src="https://is.gd/ho9np9"/>
+                  <img src="https://is.gd/TyrfCx"/>
               </div>
               <div>
-                  <img src="https://is.gd/TyrfCx"/>
+                  <img src="https://is.gd/ORm39y"/>
+                
               </div> 
               </div> 
            <div>
@@ -43,6 +45,7 @@ const Music = (props) => {
               {Songs}
            </div>
            
+        </div>
         </React.Fragment>
     )
  }
