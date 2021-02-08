@@ -18,10 +18,10 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile"  render={() => <Profile posts={props.posts}/>} />
-          <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>} />
+          <Route path="/profile"  render={() => <Profile posts={props.state.posts}/>} />
+          <Route path="/dialogs" render={() => <Dialogs dialogs={props.state.dialogs} messages={props.state.messages}/>} />
           <Route path="/news" render={() => <News />} />
-          <Route path="/music" render={() => <Music singers={props.singers} songs={props.songs}/>} />
+          <Route path="/music" render={() => <Music singers={props.state.singers} songs={props.state.songs}/>} />
           <Route path="/settings" render={() => <Settings />} />
         </div>
       </div>
