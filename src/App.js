@@ -7,24 +7,26 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { BrowserRouter, Route } from "react-router-dom";
+import Friends from "./components/Friends/Friends";
+import { Route } from "react-router-dom";
+
 
 const App = (props) => {
   
   return (
-    <BrowserRouter>
+   
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-        <Route path="/profile"  render={() => <Profile posts={props.posts}/>} />
-          <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages} />} />
-          <Route path="/news" render={() => <News  countries={props.countries} greetings={props.greetings}/>} />
-          <Route path="/music" render={() => <Music singers={props.singers} mySong={props.mySong} />} />
+          <Route path="/profile"  render={() => <Profile pageState={props.state.profilePage}/>} />
+          <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage}/>} />
+          <Route path="/news" render={() => <News  countryState={props.state.countriesPage} />} />
+          <Route path="/music" render={() => <Music singersState={props.state.singersPage} />} />
           <Route path="/settings" render={() => <Settings />} />
+          <Route path="/friends" render={() => <Friends />} />
         </div>
       </div>
-    </BrowserRouter>
   );
 };
 

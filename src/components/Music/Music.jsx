@@ -2,6 +2,7 @@ import  React from 'react';
 import style from './Music.module.css';
 
 const Singer = (props) => {
+
     return(
         <div className={style.singer}>
             <div>{props.name}</div>
@@ -19,9 +20,9 @@ const Song = (props) => {
 
 const Music = (props) => {
 
-    let Songs = props.mySong.map( song => <Song song={song.song} />);
+    let Songs = props.singersState.mySong.map( song => <Song song={song.song} />);
 
-    let Singers = props.singers.map( sing => <Singer name={sing.name} />);
+    let Singers = props.singersState.singers.map( sing => <Singer name={sing.name} />);
 
     return (
         <React.Fragment>
@@ -43,8 +44,7 @@ const Music = (props) => {
            </div>
            <div>
               {Songs}
-           </div>
-           
+           </div>  
         </div>
         </React.Fragment>
     )

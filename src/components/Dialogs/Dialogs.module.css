@@ -1,27 +1,59 @@
 .dialogs {
   display: grid;
-  grid-template-columns: 5fr 5fr;
+  grid-template-columns:1fr 2fr 1fr 2fr ;
+  grid-template-areas: "dialog1 message1 dialog2 message2";
+  
 }
-.dialogItems a{
+
+.dialogItems .active{
+    color: gold;
+}
+
+.messages {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.message {
+  line-height: 75px;
+  padding: 10px;
+  text-shadow: 2px 2px 4px #000000;
+}
+ .dialogimage img{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+}
+.dialogItems1 a{
+  grid-area: dialog1;
   padding: 10px;
   color: #fff;
   text-decoration:none;
   text-shadow: 2px 2px 4px #000000;
 }
-.dialogItems .active{
-    color: gold;
-}
-.dialog {
+.dialogItems1{
   padding: 10px;
- 
+  line-height: 40px;
 }
 
-.messages {
-  padding: 10px;
+.dialogItems2 a{
+  grid-area: dialog2;
+  padding: 20px;
   color: #fff;
-}
-
-.message {
-  padding: 10px;
+  text-decoration:none;
   text-shadow: 2px 2px 4px #000000;
 }
+.dialogItems2{
+  padding: 10px;
+  line-height: 40px;
+}
+.messages1 {
+  grid-area: message1;
+  color:white;
+}
+.messages2 {
+  grid-area: message2;
+  color:white;
+}
+
+
