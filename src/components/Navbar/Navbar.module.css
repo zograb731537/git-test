@@ -5,17 +5,28 @@
     background-color: rgba(51, 172, 112, 0.623);
     padding: 20px;
  }
-.item a{  
+.item a {  
     color:white;
     text-shadow: 2px 2px 4px #000000;
-    text-decoration: none;
+    text-decoration:none;
+    display: inline-block;
 } 
 
 .item a.active{
     color:gold;
 }
-.friends img{
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
+
+.item a:hover{
+    background-color: grey;
 }
+.item img{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    padding: 5px;
+}
+.fname{
+    color:white;
+    word-spacing: 8px;
+}
+

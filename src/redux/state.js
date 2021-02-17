@@ -61,7 +61,16 @@ let state = {
             {song:<a href="https://youtu.be/1bGOgY1CmiU" target="_blank">I just called to say I love you</a>},
             {song:<a href="https://youtu.be/p2Rch6WvPJE" target="_blank">Un breaks my heart</a>}
           ]
-    } 
+    },
+    
+    friendsPage : {
+        friends : [
+          {name:"Edo"},
+          {name:"Vika"},
+          {name:"Tanya"},
+        ]
+      }
+   
     
     }
     export default state;
