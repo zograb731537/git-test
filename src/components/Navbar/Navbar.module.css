@@ -8,17 +8,26 @@
 .item a {  
     color:white;
     text-shadow: 2px 2px 4px #000000;
-    text-decoration:none;
-    display: inline-block;
+   
+   
 } 
 
 .item a.active{
-    color:gold;
+    color:rgb(31, 27, 10);
+    display: inline-block;
+    width: 110%;
+    text-decoration:none;
 }
 
 .item a:hover{
-    background-color: grey;
+    color:rgb(31, 27, 10);
+    background-color: rgb(184, 224, 189);
+    display: inline-block;
+    width: 110%;
+    text-decoration:none;
+    border-radius: 4.3px;
 }
+
 .item img{
     width: 40px;
     height: 40px;

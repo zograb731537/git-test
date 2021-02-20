@@ -22,7 +22,7 @@ const Navbar = () => {
     <NavLink to="/settings" activeClassName={s.active}><h5>Settings</h5></NavLink>
     </div>
     <div className={s.item}>
-    <NavLink to="/friends" activeClassName={s.active}><h3>Friends</h3></NavLink>
+      <NavLink to="/friends" activeClassName={s.active}><h3>Friends</h3></NavLink>
     <div>
       <img src="https://is.gd/QAgvzb" />
       <img src="https://is.gd/QAgvzb" />

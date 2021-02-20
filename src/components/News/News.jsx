@@ -17,6 +17,7 @@ const Greeting = (props) => {
     )
 }
 
+
 const News = (props) => {
 
   let Country = props.countryState.countries.map(country => <NewCountry name={country.name} />);

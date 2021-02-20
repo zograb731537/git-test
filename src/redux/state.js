@@ -70,7 +70,15 @@ let state = {
           {name:"Tanya"},
         ]
       }
-   
-    
+    }
+
+    export let addPost = (postMessage) => {
+     
+      let newPost = {
+        id: 5,
+        message: postMessage,
+        count: 0
+      };
+        state.profilePage.posts.push(newPost)
     }
     export default state;
