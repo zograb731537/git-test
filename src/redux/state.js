@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage : {
     posts: [
@@ -23,31 +25,48 @@ let state = {
     ],
   },
   singersPage : {
-    singers: [
-      {id:'1',singer:'Michael Jackson'},
-      {id:'2',singer:'Paul McCartney'},
-      {id:'3',singer:'Stevie Wonder'}
-    ],
-    songs: [
-      {id:"1",song:<a href="https://youtu.be/s3wNuru4U0I?t=2" target="_blank">We are the world</a>},
-      {id:"2",song:<a href="https://youtu.be/6d5ST3tbPIU" target="_blank">Let it be</a>},
-      {id:"3",song:<a href="https://youtu.be/1bGOgY1CmiU" target="_blank">I just called to say I love you</a>},
-    ],
-    
+     singers: [
+        {id:'1',singer:'Michael Jackson'},
+        {id:'2',singer:'Paul McCartney'},
+        {id:'3',singer:'Stevie Wonder'}
+      ],
+      songs: [
+        {id:"1",song:<a href="https://youtu.be/s3wNuru4U0I?t=2" target="_blank">We are the world</a>},
+        {id:"2",song:<a href="https://youtu.be/6d5ST3tbPIU" target="_blank">Let it be</a>},
+        {id:"3",song:<a href="https://youtu.be/1bGOgY1CmiU" target="_blank">I just called to say I love you</a>},
+      ],
+      
   }
      
       
 }
-
-export let addPost = (postMessage) => {
-
+ 
+export let addPost = (postmessage) => {
   let newPost = {
     id:5,
-    message:postMessage,
-    count:15,
+    message: postmessage,
+    count:12,
   };
-     state.profilePage.posts.push(newPost)
-    //  rerenderEntireTree(state);
+     state.profilePage.posts.push(newPost);
+     rerenderEntireTree(state);
+}
+
+export let addMessage = (newName) => {
+  let newMessage = {
+    id:6,
+    name:newName,
+  }
+  state.dialogsPage.dialogs.push(newMessage);
+  rerenderEntireTree(state);
+}
+export let addSinger = (newName) => {
+  let newSinger = {
+    id:4,
+    singer:newName,
+  }
+  state.singersPage.singers.push(newSinger);
+  rerenderEntireTree(state);
+
 }
 
 export default state;

@@ -30,10 +30,22 @@ const Music = (props) => {
     let Song = props.singersState.songs.map( s => <Songs song={s.song} id={s.id} />);
 
 
-     let Sing = props.singersState.singers.map( s => <Singer name={s.singer} id={s.id}/>);   
+     let Sing = props.singersState.singers.map( s => <Singer name={s.singer} id={s.id}/>); 
+     
+     let addNewSinger = React.createRef();
+
+     let addSingers = () => {
+         let text = addNewSinger.current.value;
+         props.addSinger(text);
+         
+     }
 
     return (
         <div className={style.music + ' ' + style.active}> 
+        <div >
+                <textarea ref={addNewSinger}></textarea>
+                <button onClick={addSingers}>ADD</button>
+            </div>
           <div className={style.musicImg}>
             <div>          
             <img src="https://is.gd/Ddj4Rg" />

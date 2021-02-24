@@ -1,8 +1,11 @@
 
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import state from "./redux/state";
 import { rerenderEntireTree } from './render';
+import state from './redux/state';
+
+
+  
 
 rerenderEntireTree(state);
 
