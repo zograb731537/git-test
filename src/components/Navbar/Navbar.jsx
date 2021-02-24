@@ -19,10 +19,13 @@ const Navbar = () => {
       <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
     </div>
     <div className={s.item}>
-    <NavLink to="/settings" activeClassName={s.active}><h5>Settings</h5></NavLink>
+    <NavLink to="/settings" activeClassName={s.active}><select>Settings
+                                                        <option value="1">Settings</option>
+                                                        <option value="2">Profile</option>
+                                                       </select></NavLink>
     </div>
     <div className={s.item}>
-      <NavLink to="/friends" activeClassName={s.active}><h3>Friends</h3></NavLink>
+      <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
     <div>
       <img src="https://is.gd/QAgvzb" />
       <img src="https://is.gd/QAgvzb" />

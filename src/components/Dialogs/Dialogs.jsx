@@ -55,7 +55,7 @@ let newPostElement = React.createRef();
 
 let addPost = () => {
    let text = newPostElement.current.value;
-   alert(text);
+   props.addDialog(text);
    newPostElement.current.value = "";
 }
 
@@ -74,7 +74,7 @@ let addPost = () => {
              {MessageElement2} 
            </div> 
            <div>
-               <textarea ref={newPostElement}></textarea>
+               <textarea ref={newPostElement} ></textarea>
             </div>
             <div>
                <button onClick={addPost}>Add</button>
