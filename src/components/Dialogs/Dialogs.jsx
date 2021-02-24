@@ -41,12 +41,7 @@ const Image = (props) => {
    )
 }
 
-let addNewText = React.createRef();
 
-let addText = () => {
-   let text = addNewText.current.value;
-   alert(text);
-}
 const Dialogs = (props) => {
 
 let DialogElement1 = props.dialogState.dialogs1.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
@@ -55,6 +50,14 @@ let DialogElement2 = props.dialogState.dialogs2.map( dialog => <DialogItem name=
 
 let MessageElement1 = props.dialogState.messages1.map( element => <Message message={element.message} id={element.id} /> );
 let MessageElement2 = props.dialogState.messages2.map( element => <Message message={element.message} id={element.id} /> );
+
+let newPostElement = React.createRef();
+
+let addPost = () => {
+   let text = newPostElement.current.value;
+   alert(text);
+   newPostElement.current.value = "";
+}
 
    return (
        <div className={s.dialogs}>
@@ -71,10 +74,10 @@ let MessageElement2 = props.dialogState.messages2.map( element => <Message messa
              {MessageElement2} 
            </div> 
            <div>
-               <textarea ref={addNewText}></textarea>
+               <textarea ref={newPostElement}></textarea>
             </div>
             <div>
-               <button onClick={addText}>Add</button>
+               <button onClick={addPost}>Add</button>
             </div>
           </div>
    )

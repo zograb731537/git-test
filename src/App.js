@@ -10,7 +10,6 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import { Route } from "react-router-dom";
 
-
 const App = (props) => {
   
   return (
@@ -20,7 +19,7 @@ const App = (props) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route path="/profile"  render={() => <Profile pageState={props.state.profilePage} addPost={props.addPost}/>} />
-          <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage}/>} />
+          <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage} addPost={props.addPost} />} />
           <Route path="/news" render={() => <News  countryState={props.state.countriesPage} />} />
           <Route path="/music" render={() => <Music singersState={props.state.singersPage} />} />
           <Route path="/settings" render={() => <Settings />} />
