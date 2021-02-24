@@ -7,10 +7,10 @@ import Message from "./Message";
 const Dialogs = (props) => {
 
  
-   let DialogElement = props.dialogs.map( dialog =>  <DialogItem name={dialog.name} id={dialog.id}/> );
+   let DialogElement = props.dialogState.dialogs.map( dialog =>  <DialogItem name={dialog.name} id={dialog.id}/> );
    
 
-   let MessageElement = props.messages.map( element => <Message message={element.message} id={element.id} /> );
+   let MessageElement = props.dialogState.messages.map( element => <Message message={element.message} id={element.id} /> );
 
       return (
          <div className={s.dialogs}>

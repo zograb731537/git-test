@@ -27,10 +27,10 @@ const Songs = (props) => {
 const Music = (props) => {
 
 
-    let Song = props.songs.map( s => <Songs song={s.song} id={s.id} />);
+    let Song = props.singersState.songs.map( s => <Songs song={s.song} id={s.id} />);
 
 
-     let Sing = props.singers.map( s => <Singer name={s.singer} id={s.id}/>);   
+     let Sing = props.singersState.singers.map( s => <Singer name={s.singer} id={s.id}/>);   
 
     return (
         <div className={style.music + ' ' + style.active}> 

@@ -5,13 +5,13 @@ import Post from "./Post";
 
 const MyPosts = (props) => {
 
-   let addNewText = React.createRef();
-    let addText = () => {
-let text = addNewText.current.value;
-alert(text);
-    }
+    let postsElement = props.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
 
-     let postsElement = props.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
+    let addNewText = React.createRef();
+    let addText = () => {
+        let text = addNewText.current.value;
+        props.addPost(text);
+    }
     
     return (      
         <div className={style.posts}>
