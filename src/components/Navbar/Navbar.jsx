@@ -19,10 +19,11 @@ const Navbar = () => {
       <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
     </div>
     <div className={s.item}>
-    <NavLink to="/settings" activeClassName={s.active}><select>Settings
-                                                        <option value="1">Settings</option>
-                                                        <option value="2">Profile</option>
-                                                       </select></NavLink>
+    <NavLink to="/settings" activeClassName={s.active}>
+      <select>
+          <option >Settings</option>
+          <option >Profile</option>
+      </select></NavLink>
     </div>
     <div className={s.item}>
       <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
