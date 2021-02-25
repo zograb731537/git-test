@@ -1,5 +1,7 @@
 import { rerenderEntireTree } from "../render";
 
+
+
 let state = {
   profilePage : {
     posts: [
@@ -8,6 +10,7 @@ let state = {
       {id: 3,message: " I want to be a programmer!",count:20},
       {id: 4,message: "I feel I can do it!",count:10},
     ],
+    newPostText : "It-kamasutra",
   }, 
   dialogsPage  : {
     dialogs: [
@@ -40,14 +43,20 @@ let state = {
      
       
 }
- 
-export let addPost = (postmessage) => {
+
+export let addPost = () => {
   let newPost = {
     id:5,
-    message: postmessage,
+    message: state.profilePage.newPostText,
     count:12,
   };
      state.profilePage.posts.push(newPost);
+     state.profilePage.newPostText = "";
+     rerenderEntireTree(state);
+}
+
+export let apdateNewText = (newText) => {
+  state.profilePage.newPostText = newText;
      rerenderEntireTree(state);
 }
 
