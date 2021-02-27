@@ -54,11 +54,12 @@ let MessageElement2 = props.dialogState.messages2.map( element => <Message messa
 let newPostElement = React.createRef();
 
 let addPost = () => {
-   let text = newPostElement.current.value;
-   props.addDialog(text);
-   newPostElement.current.value = "";
+   props.addDialog();
 }
-
+let onPostChange = () => {
+   let text = newPostElement.current.value;
+   props.apdateNewPostName(text)
+}
    return (
        <div className={s.dialogs}>
             <div className={s.dialogItems1}>
@@ -74,10 +75,11 @@ let addPost = () => {
              {MessageElement2} 
            </div> 
            <div>
-               <textarea ref={newPostElement} ></textarea>
+               <textarea ref={newPostElement} placeholder="Add Name"
+               onChange={onPostChange} value={props.NewPostName} ></textarea>
             </div>
             <div>
-               <button onClick={addPost}>Add</button>
+               <button onClick={addPost}>Add Name</button>
             </div>
           </div>
    )
