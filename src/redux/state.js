@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+  console.log('state');
+}
 
 let state = {
     profilePage : {
@@ -72,11 +74,12 @@ let state = {
           {name:"Edo"},
           {name:"Vika"},
           {name:"Tanya"},
-        ]
+        ],
+        addName : '',
       }
     }
  
-    export let addPost = () => {
+    export const addPost = () => {
      
       let newPost = {
         id: 5,
@@ -85,9 +88,9 @@ let state = {
       };
         state.profilePage.posts.push(newPost);
         state.profilePage.newPostText = "";
-        rerenderEntireTree(state);
+        rerenderEntireTree();
     }
-    export let addDialog = () => {
+    export const addDialog = () => {
      
         let newName = {
           id: 6,
@@ -98,15 +101,32 @@ let state = {
           rerenderEntireTree(state);
     }
 
-    export let updateNewPostText = (newText) => {
+    export const updateNewPostText = (newText) => {
        state.profilePage.newPostText = newText;
-       rerenderEntireTree(state);
+       rerenderEntireTree();
     }
 
-    export let updateNewPostName = (newName) => {
+    export const updateNewPostName = (newName) => {
       state.dialogsPage.newPostName = newName;
       rerenderEntireTree(state);
    }
-  
+   
+   export const addNames = () => {
+     let name = {
+       name : state.friendsPage.addName,
+     }
+     state.friendsPage.friends.push(name);
+     state.friendsPage.addName = "";
+     rerenderEntireTree();
+   }
+
+   export const updateFriendsName = (friendsName) => {
+     state.friendsPage.addName = friendsName;
+     rerenderEntireTree();
+   }
+
+   export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
+   }
    
     export default state;
