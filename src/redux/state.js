@@ -26,6 +26,7 @@ let state = {
       {id: 2,message: "How are you?"},
       {id: 3,message: "What is your name?"},
     ],
+    newPostMessage :"",
   },
   singersPage : {
      singers: [
@@ -55,17 +56,23 @@ export let addPost = () => {
      rerenderEntireTree(state);
 }
 
-export let apdateNewText = (newText) => {
+export let updateNewText = (newText) => {
   state.profilePage.newPostText = newText;
      rerenderEntireTree(state);
 }
 
-export let addMessage = (newName) => {
+export let addMessage = () => {
   let newMessage = {
     id:6,
-    name:newName,
+    name:state.dialogsPage.newPostMessage,
   }
   state.dialogsPage.dialogs.push(newMessage);
+  state.dialogsPage.newPostMessage = "";
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessage = (newMessage) => {
+  state.dialogsPage.newPostMessage = newMessage;
   rerenderEntireTree(state);
 }
 export let addSinger = (newName) => {

@@ -14,9 +14,12 @@ const Dialogs = (props) => {
 
     let addNewMessage = React.createRef();
     let addMessages = () => {
-       let text = addNewMessage.current.value;
-       addNewMessage.current.value = "";
-       props.addMessage(text);
+       props.addMessage();
+    }
+
+    let onPostChange = () => {
+      let text = addNewMessage.current.value;
+      props.updateNewMessage(text);
     }
     
 
@@ -29,9 +32,10 @@ const Dialogs = (props) => {
                {MessageElement} 
             </div>
             <div>
-               <input type="text" ref={addNewMessage}/>
-            </div>
-            <button onClick={addMessages}>ADD</button>
+               <textarea  ref={addNewMessage}
+               onChange={onPostChange} value={props.dialogState.addNewMessage}/>
+               <button onClick={addMessages}>Add Name</button>
+            </div> 
          </div> 
       )
 } 

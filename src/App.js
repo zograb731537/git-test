@@ -8,7 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { BrowserRouter, Route } from "react-router-dom";
-import { apdateNewText } from "./redux/state";
+import { updateNewMessage, updateNewText } from "./redux/state";
 
 
 const App = (props) => {
@@ -23,9 +23,10 @@ const App = (props) => {
           <Route path="/profile"  
             render={() => 
               <Profile pageState={props.state.profilePage}
-              addPost={props.addPost} apdateNewText={apdateNewText}/>
+              addPost={props.addPost} updateNewText={props.updateNewText}/>
           } />
-          <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage} addMessage={props.addMessage}/>} />
+          <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage}
+           addMessage={props.addMessage} updateNewMessage={props.updateNewMessage}/>} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music singersState={props.state.singersPage} addSinger={props.addSinger}/>} />
           <Route path="/settings" render={() => <Settings />} />
