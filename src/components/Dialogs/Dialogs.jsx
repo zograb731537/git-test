@@ -58,7 +58,7 @@ let addPost = () => {
 }
 let onPostChange = () => {
    let text = newPostElement.current.value;
-   props.apdateNewPostName(text)
+   props.updateNewPostName(text)
 }
    return (
        <div className={s.dialogs}>
@@ -76,7 +76,7 @@ let onPostChange = () => {
            </div> 
            <div>
                <textarea ref={newPostElement} placeholder="Add Name"
-               onChange={onPostChange} value={props.NewPostName} ></textarea>
+               onChange={onPostChange} value={props.dialogState.newPostName} ></textarea>
             </div>
             <div>
                <button onClick={addPost}>Add Name</button>

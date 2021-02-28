@@ -19,7 +19,6 @@ let state = {
             {id: 4,name: "Karen"},
             {id: 5,name: "Sargis"},
           ],
-          newPostName :"",
           messages1: [
             {id: 1,message: "Hello!"},
             {id: 2,message: "How are you?"},
@@ -41,7 +40,7 @@ let state = {
             {id: 4,message: "I am 35."},
             {id: 5,message: "I was born in Moskow."},
           ],
-         
+          newPostName :"",
     },
     countriesPage : {
         countries: [
@@ -81,30 +80,30 @@ let state = {
      
       let newPost = {
         id: 5,
-        message: state.profilePage. newPostText,
+        message: state.profilePage.newPostText,
         count: 0
       };
         state.profilePage.posts.push(newPost);
         state.profilePage.newPostText = "";
         rerenderEntireTree(state);
     }
-        export let addDialog = () => {
+    export let addDialog = () => {
      
-          let newName = {
-            id: 6,
-            name: state.dialogsPage.newPostName,
-          };
-            state.dialogsPage.dialogs1.push(newName);
-            state.dialogsPage.newPostName = "";
-            rerenderEntireTree(state);
+        let newName = {
+          id: 6,
+          name: state.dialogsPage.newPostName,
+        };
+          state.dialogsPage.dialogs1.push(newName);
+          state.dialogsPage.newPostName = "";
+          rerenderEntireTree(state);
     }
 
-    export let apdateNewPostText = (newText) => {
+    export let updateNewPostText = (newText) => {
        state.profilePage.newPostText = newText;
        rerenderEntireTree(state);
     }
 
-    export let apdateNewPostName = (newName) => {
+    export let updateNewPostName = (newName) => {
       state.dialogsPage.newPostName = newName;
       rerenderEntireTree(state);
    }

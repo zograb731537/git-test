@@ -5,7 +5,7 @@ import Post from "./Post";
 
 const MyPosts = (props) => {
   
-     let postsElement = props.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
+     let postsElement = props.pageState.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
      
      let newPostElement = React.createRef();
 
@@ -15,7 +15,7 @@ const MyPosts = (props) => {
 
      let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.apdateNewPostText(text)
+        props.updateNewPostText(text)
      }
     return (      
         <div className={s.posts}>
@@ -26,7 +26,7 @@ const MyPosts = (props) => {
          <div>
              <div>
            <textarea onChange={onPostChange} placeholder="Add Post"
-            ref={newPostElement} value={props.newPostText}/>
+            ref={newPostElement} value={props.pageState.newPostText}/>
            </div>
            <div>
            <button onClick={ addPost }>Add post</button>

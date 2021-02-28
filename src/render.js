@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {addDialog, addPost, apdateNewPostName, apdateNewPostText} from "./redux/state";
+import {addDialog, addPost, updateNewPostName, updateNewPostText} from "./redux/state";
 import { BrowserRouter } from "react-router-dom";
 
 export let rerenderEntireTree = (state) => {
@@ -11,8 +11,8 @@ export let rerenderEntireTree = (state) => {
     <BrowserRouter>
       <React.StrictMode>
         <App state={state} addPost={addPost}
-         addDialog={addDialog} apdateNewPostText={apdateNewPostText}
-         apdateNewPostName={apdateNewPostName} />
+         addDialog={addDialog} updateNewPostText={updateNewPostText}
+         updateNewPostName={updateNewPostName} />
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById("root")
