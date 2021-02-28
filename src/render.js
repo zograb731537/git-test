@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import state, { addMessage, addPost, addSinger, updateNewMessage, updateNewText } from "./redux/state";
+import state, { addMessage, addPost, addSinger, updateNewMessage, updateNewText ,updateNewSingerName} from "./redux/state";
 import { BrowserRouter } from 'react-router-dom';
 
   
@@ -13,7 +13,8 @@ export let rerenderEntireTree = () => {
       <React.StrictMode>
        <App state={state} addPost={addPost} 
        addMessage={addMessage} addSinger={addSinger}
-       updateNewText={updateNewText} updateNewMessage={updateNewMessage}/>
+       updateNewText={updateNewText} updateNewMessage={updateNewMessage}
+       updateNewSingerName={updateNewSingerName}/>
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

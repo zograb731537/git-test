@@ -5,7 +5,7 @@ import Post from "./Post";
 
 const MyPosts = (props) => {
 
-    let postsElement = props.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
+    let postsElement = props.pageState.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
 
     let addNewText = React.createRef();
     let addText = () => {

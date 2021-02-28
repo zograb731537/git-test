@@ -39,6 +39,7 @@ let state = {
         {id:"2",song:<a href="https://youtu.be/6d5ST3tbPIU" target="_blank">Let it be</a>},
         {id:"3",song:<a href="https://youtu.be/1bGOgY1CmiU" target="_blank">I just called to say I love you</a>},
       ],
+      newSingerName : "",
       
   }
      
@@ -75,14 +76,20 @@ export let updateNewMessage = (newMessage) => {
   state.dialogsPage.newPostMessage = newMessage;
   rerenderEntireTree(state);
 }
-export let addSinger = (newName) => {
+export let addSinger = () => {
   let newSinger = {
-    id:4,
-    singer:newName,
-  }
-  state.singersPage.singers.push(newSinger);
-  rerenderEntireTree(state);
+    id : 4,
+    singer : state.singersPage.newSingerName,
+  } 
 
+  state.singersPage.singers.push(newSinger);
+  state.singersPage.newSingerName = "";
+  rerenderEntireTree(state);
+}
+
+export let updateNewSingerName = (newName) => {
+  state.singersPage.newSingerName = newName;
+  rerenderEntireTree();
 }
 
 export default state;

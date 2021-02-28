@@ -35,16 +35,20 @@ const Music = (props) => {
      let addNewSinger = React.createRef();
 
      let addSingers = () => {
-         let text = addNewSinger.current.value;
-         props.addSinger(text);
-         
-     }
+         props.addSinger();
+         }
+
+         let onPostChange = () => {
+            let text = addNewSinger.current.value;
+            props.updateNewSingerName(text);
+         }
 
     return (
         <div className={style.music + ' ' + style.active}> 
         <div >
-                <textarea ref={addNewSinger}></textarea>
-                <button onClick={addSingers}>ADD</button>
+                <textarea ref={addNewSinger} 
+                value={props.singersState.newSingerName} onChange={onPostChange}/>
+                <button onClick={addSingers}>Add Singer Name</button>
             </div>
           <div className={style.musicImg}>
             <div>          
