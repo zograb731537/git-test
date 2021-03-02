@@ -75,7 +75,7 @@ let state = {
           {name:"Vika"},
           {name:"Tanya"},
         ],
-        addName : '',
+       addName : "",
       }
     }
  
@@ -110,21 +110,22 @@ let state = {
       state.dialogsPage.newPostName = newName;
       rerenderEntireTree(state);
    }
-   
+    
    export const addNames = () => {
-     let name = {
-       name : state.friendsPage.addName,
-     }
-     state.friendsPage.friends.push(name);
+
+    let friendKeyValue = {
+      name : state.friendsPage.addName,
+    }
+     state.friendsPage.friends.push(friendKeyValue);
      state.friendsPage.addName = "";
      rerenderEntireTree();
    }
 
-   export const updateFriendsName = (friendsName) => {
-     state.friendsPage.addName = friendsName;
-     rerenderEntireTree();
+   export const updateFriendsName = (friedsName) => {
+      state.friendsPage.addName = friedsName;
+      rerenderEntireTree();
    }
-
+  
    export const subscribe = (observer) => {
     rerenderEntireTree = observer;
    }

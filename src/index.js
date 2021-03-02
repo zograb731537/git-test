@@ -14,7 +14,7 @@ let rerenderEntireTree = () => {
     <BrowserRouter>
       <React.StrictMode>
         <App state={state} addPost={addPost} addDialog={addDialog} 
-        addNames={addNames} updateNewPostText={updateNewPostText} 
+         addNames={addNames} updateNewPostText={updateNewPostText} 
          updateNewPostName={updateNewPostName} updateFriendsName={updateFriendsName}/>
       </React.StrictMode>
     </BrowserRouter>,

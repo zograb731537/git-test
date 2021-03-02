@@ -16,26 +16,23 @@ const Friends = (props) => {
 
     let addNewName = React.createRef();
 
-    let addPost = () => {
-        props.addNames();
+    let AddPost = () => {
+      props.addNames();
     }
-
-    let onPostChange = () => {
-        let text = addNewName.current.value;
-        props.updateFriendsName(text);
+    let onNameChange = () => {
+      let friedsName = addNewName.current.value;
+      props.updateFriendsName(friedsName);
     }
-    
+   
     
    return (
     <div>
        <div className={s.friends}>
          {Names}
        </div>
-       <div>
-           <textarea value={props.nameState.addNames} 
-           onChange={onPostChange} ref={addNewName}/>
-           <button onClick={addPost}>Add Name</button>
-       </div>
+       <textarea ref={addNewName} onChange={onNameChange}
+       value={props.nameState.addName}/>
+       <button onClick={AddPost}>Add Name</button>
     </div>
    )
 }
