@@ -1,12 +1,12 @@
 import React from 'react';
-import s from './Dialogs.module.css';
+import {AddMessageActionCreator , updateNewMessageActionCreator} from "../../redux/state";
+import style from './Dialogs.module.css';
 import DialogItem from "./DialogItem";
 import Message from "./Message";
 
 
 const Dialogs = (props) => {
 
- 
    let DialogElement = props.dialogState.dialogs.map( dialog =>  <DialogItem name={dialog.name} id={dialog.id}/> );
    
 
@@ -14,20 +14,20 @@ const Dialogs = (props) => {
 
     let addNewMessage = React.createRef();
     let addMessages = () => {
-       props.dispatch({type : "ADD-MESSAGE"});
+       props.dispatch(AddMessageActionCreator());
     }
 
     let onPostChange = () => {
       let text = addNewMessage.current.value;
-      props.dispatch({type : "UPDATE-NEW-MESSAGE", newMessage : text });
+      props.dispatch(updateNewMessageActionCreator(text));
     }
     
       return (
-         <div className={s.dialogs}>
-            <div className={s.dialogItems}>  
+         <div className={style.dialogs}>
+            <div className={style.dialogItems}>  
                {DialogElement}       
             </div>
-            <div className={s.messages}>
+            <div className={style.messages}>
                {MessageElement} 
             </div>
             <div>
