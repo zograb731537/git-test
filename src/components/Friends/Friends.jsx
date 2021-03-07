@@ -18,11 +18,11 @@ const Friends = (props) => {
 
     let onChangeName = () => {
       let frendsName = addNewName.current.value;
-      props.updateNewName(frendsName); 
+      props.dispatch({type :"UPDATE-NEW-NAME" , newName : frendsName}); 
     }
    
     let addName = () => {
-      props.addName();
+      props.dispatch({type : "ADD-NAME"});
     }
     
    return (

@@ -19,14 +19,14 @@ const App = (props) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route path="/profile"  render={() => <Profile pageState={props.state.profilePage}
-           addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
+           dispatch={props.dispatch} />} />
           <Route path="/dialogs" render={() => <Dialogs dialogState={props.state.dialogsPage} 
-           addDialog={props.addDialog}  updateNewPostName={props.updateNewPostName} />} />
+           dispatch={props.dispatch}  />} />
           <Route path="/news" render={() => <News  countryState={props.state.countriesPage} />} />
           <Route path="/music" render={() => <Music singersState={props.state.singersPage} />} />
           <Route path="/settings" render={() => <Settings />} />
           <Route path="/friends" render={() => <Friends nameState={props.state.friendsPage}
-          addName={props.addName} updateNewName={props.updateNewName}/>} />
+          dispatch={props.dispatch} />} />
         </div>
       </div>
   );

@@ -82,53 +82,50 @@ let store = {
   _callSubscriber () {
     console.log('state');
   },
- addPost () {
-     
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      count: 0
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  addDialog ()  {
-     
-    let newName = {
-      id: 6,
-      name: this._state.dialogsPage.newPostName,
-    };
-    this._state.dialogsPage.dialogs1.push(newName);
-    this._state.dialogsPage.newPostName = "";
-    this._callSubscriber(this._state);
-},
-updateNewPostText (newText)  {
-  this._state.profilePage.newPostText = newText;
-  this._callSubscriber(this._state);
-},
+  subscribe (observer)  {
+    this._callSubscriber = observer;
+   },
 
- updateNewPostName  (newName) {
-  this._state.dialogsPage.newPostName = newName;
-  this._callSubscriber(this._state);
-},
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        count: 0
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    };
 
-addName () {
-  let names = {
-    name : this._state.friendsPage.addName,
+    if (action.type === "ADD-DIALOG") {
+      let newName = {
+        id: 6,
+        name: this._state.dialogsPage.newPostName,
+      };
+      this._state.dialogsPage.dialogs1.push(newName);
+      this._state.dialogsPage.newPostName = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === "APDATE-NEW-POST-NAME") {
+      this._state.dialogsPage.newPostName = action.newName;
+      this._callSubscriber(this._state);
+    };
+
+    if (action.type === "ADD-NAME") {
+      let names = {
+        name : this._state.friendsPage.addName,
+      }
+      this._state.friendsPage.friends.push(names);
+      this._state.friendsPage.addName = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-NAME") {
+      this._state.friendsPage.addName = action.newName;
+      this._callSubscriber(this._state);
+    }
   }
-  this._state.friendsPage.friends.push(names);
-  this._state.friendsPage.addName = "";
-  this._callSubscriber(this._state);
-},
-
-updateNewName (newName)  {
-  this._state.friendsPage.addName = newName;
-  this._callSubscriber(this._state);
- },
-subscribe (observer)  {
-  this._callSubscriber = observer;
- },
 }
 
 

@@ -54,11 +54,11 @@ let MessageElement2 = props.dialogState.messages2.map( element => <Message messa
 let newPostElement = React.createRef();
 
 let addPost = () => {
-   props.addDialog();
+   props.dispatch({type : "ADD-DIALOG"});
 }
 let onPostChange = () => {
    let text = newPostElement.current.value;
-   props.updateNewPostName(text)
+   props.dispatch({type : "APDATE-NEW-POST-NAME" , newName : text})
 }
    return (
        <div className={s.dialogs}>
