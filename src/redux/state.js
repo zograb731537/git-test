@@ -1,3 +1,15 @@
+const ADD_POST = "ADD-POST";
+
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
+const ADD_DIALOG = "ADD-DIALOG";
+
+const APDATE_NEW_POST_NAME = "APDATE-NEW-POST-NAME" ;
+
+const ADD_NAME = "ADD-NAME";
+
+const UPDATE_NEW_NAME = "UPDATE-NEW-NAME";
+
 let store = {
    _state : {
   profilePage : {
@@ -127,7 +139,45 @@ let store = {
     }
   }
 }
+ 
 
+export const  addPostActionCreator = () => {
+  return {
+      type : ADD_POST
+  }
+
+};
+
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+      type : UPDATE_NEW_POST_TEXT , newText : text
+  }
+
+};
+
+export const addDialogActionCreator = () => {
+  return {
+     type : ADD_DIALOG
+  }
+};
+
+export const updateNewPostNameActionCreator = (text) => {
+  return {
+     type : APDATE_NEW_POST_NAME , newName : text
+  }
+};
+
+export const AddNameActionCreator = () => {
+  return {
+    type : ADD_NAME
+  }
+};
+
+export const updateNewNameActionCreator = (frendsName) => {
+  return {
+    type :UPDATE_NEW_NAME , newName : frendsName
+  }
+};
 
     export default store;
     window.store = store; 

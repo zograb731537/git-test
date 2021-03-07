@@ -1,5 +1,6 @@
 import  React from 'react';
-import s from './Friends.module.css';
+import { AddNameActionCreator, updateNewNameActionCreator } from '../../redux/state';
+import style from './Friends.module.css';
 
 const FriendsName = (props) => {
     return (
@@ -18,16 +19,16 @@ const Friends = (props) => {
 
     let onChangeName = () => {
       let frendsName = addNewName.current.value;
-      props.dispatch({type :"UPDATE-NEW-NAME" , newName : frendsName}); 
+      props.dispatch(updateNewNameActionCreator(frendsName)); 
     }
    
     let addName = () => {
-      props.dispatch({type : "ADD-NAME"});
+      props.dispatch(AddNameActionCreator());
     }
     
    return (
     <div>
-       <div className={s.friends}>
+       <div className={style.friends}>
          {Names}
        </div>
          <textarea ref={addNewName} value={props.nameState.addName}

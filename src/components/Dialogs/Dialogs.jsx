@@ -1,5 +1,6 @@
 import  React from 'react';
 import { NavLink } from 'react-router-dom';
+import { addDialogActionCreator, updateNewPostNameActionCreator } from '../../redux/state';
 import s from './Dialogs.module.css';
 
 const DialogItem = (props) => {
@@ -41,7 +42,6 @@ const Image = (props) => {
    )
 }
 
-
 const Dialogs = (props) => {
 
 let DialogElement1 = props.dialogState.dialogs1.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
@@ -54,11 +54,11 @@ let MessageElement2 = props.dialogState.messages2.map( element => <Message messa
 let newPostElement = React.createRef();
 
 let addPost = () => {
-   props.dispatch({type : "ADD-DIALOG"});
+   props.dispatch(addDialogActionCreator());
 }
 let onPostChange = () => {
    let text = newPostElement.current.value;
-   props.dispatch({type : "APDATE-NEW-POST-NAME" , newName : text})
+   props.dispatch(updateNewPostNameActionCreator(text))
 }
    return (
        <div className={s.dialogs}>
