@@ -35,21 +35,18 @@ const Music = (props) => {
      let addNewSinger = React.createRef();
 
      let addSingers = () => {
-         props.addSinger();
+         props.dispatch({type : "ADD-SINGER"});
          }
 
          let onPostChange = () => {
             let text = addNewSinger.current.value;
-            props.updateNewSingerName(text);
+            props.dispatch({type :"APDATE-NEW-SINGER-NAME", newName :text});
          }
 
     return (
+        <>
         <div className={style.music + ' ' + style.active}> 
-        <div >
-                <textarea ref={addNewSinger} 
-                value={props.singersState.newSingerName} onChange={onPostChange}/>
-                <button onClick={addSingers}>Add Singer Name</button>
-            </div>
+       
           <div className={style.musicImg}>
             <div>          
             <img src="https://is.gd/Ddj4Rg" />
@@ -68,6 +65,12 @@ const Music = (props) => {
                 {Song}
             </div>
         </div>
+          <div >
+          <textarea ref={addNewSinger} 
+          value={props.singersState.newSingerName} onChange={onPostChange}/>
+          <button onClick={addSingers}>Add Singer Name</button>
+      </div>
+      </>
     )
  }
  export default Music;

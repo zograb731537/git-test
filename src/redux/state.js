@@ -1,5 +1,5 @@
 let store = {
-   state : {
+   _state : {
     profilePage : {
       posts: [
         {id: 1,message: " Hello , how are you!",count:15},
@@ -39,60 +39,64 @@ let store = {
         newSingerName : "",
         
     }
-       
-        
-  },
-   addPost ()  {
-    let newPost = {
-      id:5,
-      message: state.profilePage.newPostText,
-      count:12,
-    };
-       state.profilePage.posts.push(newPost);
-       state.profilePage.newPostText = "";
-       rerenderEntireTree(state);
-  },
-  updateNewText (newText)  {
-    state.profilePage.newPostText = newText;
-       rerenderEntireTree(state);
-  },
-  addMessage () {
-    let newMessage = {
-      id:6,
-      name:state.dialogsPage.newPostMessage,
-    }
-    state.dialogsPage.dialogs.push(newMessage);
-    state.dialogsPage.newPostMessage = "";
-    rerenderEntireTree(state);
+           
   },
   
- updateNewMessage (newMessage)  {
-  state.dialogsPage.newPostMessage = newMessage;
-  rerenderEntireTree(state);
-},
- addSinger ()  {
-  let newSinger = {
-    id : 4,
-    singer : state.singersPage.newSingerName,
-  } 
+  _callSubscriber ()  {
+    console.log('state');
+  },
 
-  state.singersPage.singers.push(newSinger);
-  state.singersPage.newSingerName = "";
-  rerenderEntireTree(state);
-},
-
-updateNewSingerName (newName)  {
-  state.singersPage.newSingerName = newName;
-  rerenderEntireTree();
-},
+  getState () {
+    return this._state
+  },
 
 subscribe (observer)  {
-  rerenderEntireTree = observer;
+  this._callSubscriber = observer;
 },
-rerenderEntireTree ()  {
-  console.log('state');
-},
+dispatch (action) {
+  if(action.type === "ADD-POST") {
+     let newPost = {
+      id:5,
+      message: this._state.profilePage.newPostText,
+      count:12,
+    };
+    this._state.profilePage.posts.push(newPost);
+    this._state.profilePage.newPostText = "";
+    this._callSubscriber(this._state);
+  } else if (action.type === "APDATE-NEW-TEXT") {
+    this._state.profilePage.newPostText = action.newText;
+    this._callSubscriber(this._state);
+  };
+  if(action.type === "ADD-MESSAGE") {
+    let newMessage = {
+      id:6,
+      name:this._state.dialogsPage.newPostMessage,
+    }
+    this._state.dialogsPage.dialogs.push(newMessage);
+    this._state.dialogsPage.newPostMessage = "";
+    this._callSubscriber(this._state);
+  } else if (action.type === "UPDATE-NEW-MESSAGE") {
+    this._state.dialogsPage.newPostMessage = action.newMessage;
+    this._callSubscriber(this._state);
+ };
+
+ if (action.type === "ADD-SINGER") {
+  let newSinger = {
+    id : 4,
+    singer : this._state.singersPage.newSingerName,
+  } 
+
+  this._state.singersPage.singers.push(newSinger);
+  this._state.singersPage.newSingerName = "";
+  this._callSubscriber(this._state);
+ } else if (action.type === "APDATE-NEW-SINGER-NAME") {
+  this._state.singersPage.newSingerName = action.newName;
+  this._callSubscriber(this._state);
+ }
 }
 
-window store = store;
+}
+
+
 export default store;
+window.store = store;
