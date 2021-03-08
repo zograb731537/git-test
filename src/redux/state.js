@@ -6,6 +6,10 @@ const ADD_MESSAGE = "ADD-MESSAGE";
 
 const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 
+const ADD_SINGER = "ADD-SINGER";
+
+const APDATE_NEW_SINGER_NAME = "APDATE-NEW-SINGER-NAME";
+
 let store = {
   _state: {
     profilePage: {
@@ -147,6 +151,19 @@ export const updateNewMessageActionCreator = (text) => {
      type : UPDATE_NEW_MESSAGE, newMessage : text 
   }
 };
+
+export const addSingerActionCreator = () => {
+  return {
+      type : ADD_SINGER
+  }
+};
+
+export const updateNewSingerNameActionCreator = (text) => {
+  return {
+      type :APDATE_NEW_SINGER_NAME, newName :text
+  }
+};
+
 
 
 

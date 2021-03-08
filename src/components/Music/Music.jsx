@@ -1,4 +1,5 @@
 import  React from 'react';
+import {updateNewSingerNameActionCreator , addSingerActionCreator} from "../../redux/state";
 import {NavLink} from 'react-router-dom';
 import style from './Music.module.css';
 
@@ -35,12 +36,12 @@ const Music = (props) => {
      let addNewSinger = React.createRef();
 
      let addSingers = () => {
-         props.dispatch({type : "ADD-SINGER"});
+         props.dispatch(addSingerActionCreator());
          }
 
          let onPostChange = () => {
             let text = addNewSinger.current.value;
-            props.dispatch({type :"APDATE-NEW-SINGER-NAME", newName :text});
+            props.dispatch(updateNewSingerNameActionCreator(text));
          }
 
     return (
