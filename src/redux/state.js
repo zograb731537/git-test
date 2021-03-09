@@ -1,6 +1,6 @@
 const ADD_POST = "ADD-POST";
 
-const APDATE_NEW_TEXT = "APDATE-NEW-TEXT";
+const UPDATE_NEW_TEXT = "UPDATE-NEW-TEXT";
 
 const ADD_MESSAGE = "ADD-MESSAGE";
 
@@ -8,7 +8,7 @@ const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 
 const ADD_SINGER = "ADD-SINGER";
 
-const APDATE_NEW_SINGER_NAME = "APDATE-NEW-SINGER-NAME";
+const UPDATE_NEW_SINGER_NAME = "UPDATE-NEW-SINGER-NAME";
 
 let store = {
   _state: {
@@ -94,7 +94,7 @@ let store = {
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = " ";
       this._callSubscriber(this._state);
-    } else if (action.type === "APDATE-NEW-TEXT") {
+    } else if (action.type === "UPDATE-NEW-TEXT") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     }
@@ -120,7 +120,7 @@ let store = {
       this._state.singersPage.singers.push(newSinger);
       this._state.singersPage.newSingerName = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "APDATE-NEW-SINGER-NAME") {
+    } else if (action.type === "UPDATE-NEW-SINGER-NAME") {
       this._state.singersPage.newSingerName = action.newName;
       this._callSubscriber(this._state);
     }
@@ -135,7 +135,7 @@ export const addPostActionCreator = () => {
 
 export const updateNewTextActionCreator = (text) => {
   return {
-      type : APDATE_NEW_TEXT, newText : text
+      type : UPDATE_NEW_TEXT, newText : text
   }
 };
 
@@ -160,7 +160,7 @@ export const addSingerActionCreator = () => {
 
 export const updateNewSingerNameActionCreator = (text) => {
   return {
-      type :APDATE_NEW_SINGER_NAME, newName :text
+      type :UPDATE_NEW_SINGER_NAME, newName :text
   }
 };
 
