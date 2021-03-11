@@ -15,14 +15,14 @@ const Friends = (props) => {
 
     let Names = props.nameState.friends.map(name => <FriendsName name={name.name} />);
      
-    let addNewName = React.createRef();
+    let addNewName = props.nameState.addName;
 
-    let onChangeName = () => {
-      let frendsName = addNewName.current.value;
+    let onChangeName = (e) => {
+      let frendsName = e.target.value;
       props.dispatch(updateNewNameActionCreator(frendsName)); 
     }
    
-    let addName = () => {
+    let addNames = () => {
       props.dispatch(AddNameActionCreator());
     }
     
@@ -31,9 +31,8 @@ const Friends = (props) => {
        <div className={style.friends}>
          {Names}
        </div>
-         <textarea ref={addNewName} value={props.nameState.addName}
-         onChange={onChangeName}/>
-         <button onClick={addName}>Add Name</button>
+         <textarea value={addNewName} onChange={onChangeName}/>
+         <button onClick={addNames}>Add Name</button>
        </div>
    )
 }

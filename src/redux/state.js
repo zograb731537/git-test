@@ -103,7 +103,7 @@ let store = {
       let newPost = {
         id: 5,
         message: this._state.profilePage.newPostText,
-        count: 0
+        count: 3
       };
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = "";

@@ -8,14 +8,14 @@ const MyPosts = (props) => {
   
      let postsElement = props.pageState.posts.map( post => <Post name={post.message} count={post.count} id={post.id}  />);
      
-     let newPostElement = React.createRef();
+     let newPostElement = props.pageState.newPostText;
 
       let addPost = () => {
        props.dispatch(addPostActionCreator());
      }
 
-     let onPostChange = () => {
-        let text = newPostElement.current.value;
+     let onPostChange = (e) => {
+        let text = e.target.value;
         props.dispatch(updateNewPostTextActionCreator(text))
      }
     return (      
@@ -27,7 +27,7 @@ const MyPosts = (props) => {
          <div>
              <div>
            <textarea onChange={onPostChange} placeholder="Add Post"
-            ref={newPostElement} value={props.pageState.newPostText}/>
+            value={newPostElement}/>
            </div>
            <div>
            <button onClick={ addPost }>Add post</button>
