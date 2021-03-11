@@ -92,13 +92,15 @@ let store = {
         count: 12,
       };
       this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = " ";
+      this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);
     } else if (action.type === "UPDATE-NEW-TEXT") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    };
-    if (action.type === "ADD-MESSAGE") {
+    } else if (action.type === "UPDATE-NEW-MESSAGE") {
+      this._state.dialogsPage.newPostMessage = action.newMessage;
+      this._callSubscriber(this._state);
+    } else if (action.type === "ADD-MESSAGE") {
       let newMessage = {
         id: 6,
         name: this._state.dialogsPage.newPostMessage,
@@ -106,12 +108,7 @@ let store = {
       this._state.dialogsPage.dialogs.push(newMessage);
       this._state.dialogsPage.newPostMessage = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-MESSAGE") {
-      this._state.dialogsPage.newPostMessage = action.newMessage;
-      this._callSubscriber(this._state);
-    };
-
-    if (action.type === "ADD-SINGER") {
+    }else if (action.type === "ADD-SINGER") {
       let newSinger = {
         id: 4,
         singer: this._state.singersPage.newSingerName,
