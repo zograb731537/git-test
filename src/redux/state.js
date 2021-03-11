@@ -111,9 +111,7 @@ let store = {
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    };
-
-    if (action.type === "ADD-DIALOG") {
+    } else if (action.type === "ADD-DIALOG") {
       let newName = {
         id: 6,
         name: this._state.dialogsPage.newPostName,
@@ -124,9 +122,7 @@ let store = {
     } else if (action.type === "APDATE-NEW-POST-NAME") {
       this._state.dialogsPage.newPostName = action.newName;
       this._callSubscriber(this._state);
-    };
-
-    if (action.type === "ADD-NAME") {
+    } else if (action.type === "ADD-NAME") {
       let names = {
         name : this._state.friendsPage.addName,
       }
