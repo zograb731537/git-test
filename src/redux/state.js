@@ -17,7 +17,7 @@ let store = {
         { id: 1, message: " Hello , how are you!", count: 15 },
         { id: 2, message: " It's my first post!", count: 18 },
         { id: 3, message: " I want to be a programmer!", count: 20 },
-        { id: 4, message: "I feel I can do it!", count: 10 },
+        { id: 4, message: " I feel I can do it!", count: 10 },
       ],
       newPostText: "It-kamasutra",
     },
@@ -97,9 +97,7 @@ let store = {
     } else if (action.type === "UPDATE-NEW-TEXT") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-MESSAGE") {
-      this._state.dialogsPage.newPostMessage = action.newMessage;
-      this._callSubscriber(this._state);
+
     } else if (action.type === "ADD-MESSAGE") {
       let newMessage = {
         id: 6,
@@ -108,12 +106,15 @@ let store = {
       this._state.dialogsPage.dialogs.push(newMessage);
       this._state.dialogsPage.newPostMessage = "";
       this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE") {
+      this._state.dialogsPage.newPostMessage = action.newMessage;
+      this._callSubscriber(this._state); 
+
     }else if (action.type === "ADD-SINGER") {
       let newSinger = {
         id: 4,
         singer: this._state.singersPage.newSingerName,
       };
-
       this._state.singersPage.singers.push(newSinger);
       this._state.singersPage.newSingerName = "";
       this._callSubscriber(this._state);

@@ -33,14 +33,14 @@ const Music = (props) => {
 
      let Sing = props.singersState.singers.map( s => <Singer name={s.singer} id={s.id}/>); 
      
-     let addNewSinger = React.createRef();
+     let addNewSinger = props.singersState.newSingerName;
 
      let addSingers = () => {
          props.dispatch(addSingerActionCreator());
          }
 
-         let onPostChange = () => {
-            let text = addNewSinger.current.value;
+         let onPostChange = (e) => {
+            let text = e.target.value;
             props.dispatch(updateNewSingerNameActionCreator(text));
          }
 
@@ -67,8 +67,7 @@ const Music = (props) => {
             </div>
         </div>
           <div >
-          <textarea ref={addNewSinger} 
-          value={props.singersState.newSingerName} onChange={onPostChange}/>
+          <textarea  value={addNewSinger} onChange={onPostChange}/>
           <button onClick={addSingers}>Add Singer Name</button>
       </div>
       </>

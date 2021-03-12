@@ -12,7 +12,7 @@ const Dialogs = (props) => {
 
    let MessageElement = props.dialogState.messages.map( element => <Message message={element.message} id={element.id} /> );
 
-    let addNewMessage = props.addNewMessage;
+    let addNewMessage = props.dialogState.newPostMessage;
     let addMessages = () => {
        props.dispatch(AddMessageActionCreator());
     }
