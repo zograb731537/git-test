@@ -1,0 +1,8 @@
+export const countriesReduser = (state,action) => {
+
+    
+    return state;
+}
+
+export default countriesReduser;
+

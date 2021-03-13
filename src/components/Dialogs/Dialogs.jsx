@@ -1,6 +1,6 @@
 import  React from 'react';
 import { NavLink } from 'react-router-dom';
-import { addDialogActionCreator, updateNewPostNameActionCreator } from '../../redux/state';
+import { addDialogActionCreator, updateNewPostNameActionCreator } from '../../redux/dialogsReduser ';
 import s from './Dialogs.module.css';
 
 const DialogItem = (props) => {

@@ -1,5 +1,5 @@
 import  React from 'react';
-import { AddNameActionCreator, updateNewNameActionCreator } from '../../redux/state';
+import { AddNameActionCreator, updateNewNameActionCreator } from '../../redux/friendsReduser ';
 import style from './Friends.module.css';
 
 const FriendsName = (props) => {
