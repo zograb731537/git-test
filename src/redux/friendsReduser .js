@@ -1,9 +1,16 @@
 const ADD_NAME = "ADD-NAME";
-
 const UPDATE_NEW_NAME = "UPDATE-NEW-NAME";
 
-export const friendsReduser = (state,action) => {
-   
+let initialState = {
+      friends : [
+        {name:"Edo"},
+        {name:"Vika"},
+        {name:"Tanya"},
+      ],
+        addName : "",
+    }
+
+const friendsReduser = (state = initialState, action) => {   
      switch (action.type) {
        case ADD_NAME :
         let names = {
@@ -18,7 +25,7 @@ export const friendsReduser = (state,action) => {
           default:
             return state;
      }
-    }
+    };
     
 
 export const AddNameActionCreator = () => {
